@@ -1,0 +1,20 @@
+services:
+  swm:
+    build: .
+    container_name: swm
+    volumes:
+      - .:/app
+    working_dir: /app/SW_Median
+    environment:
+      - PYTHONPATH=/app
+    command: bash
+
+  mt:
+    build: .
+    container_name: mt
+    volumes:
+      - .:/app
+    working_dir: /app/Matching_timestamps
+    environment:
+      - PYTHONPATH=/app
+    command: bash

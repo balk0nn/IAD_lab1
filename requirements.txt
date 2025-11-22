@@ -6,3 +6,4 @@ bottleneck
 pytest
 scipy
 polars
+plotext
