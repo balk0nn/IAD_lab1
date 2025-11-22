@@ -1,11 +1,12 @@
-# test_heap_median.py
 import numpy as np
 import pytest
 from SW_Median.Solutions.TwoHeaps import medianSlidingWindowHeaps 
 
+
 @pytest.fixture
 def small_array():
     return [2, -1, 5, -7, 2, 0, 5, -8, 3, 4]
+
 
 @pytest.mark.parametrize("k", [3, 4, 5])
 def test_median_heaps(small_array, k):

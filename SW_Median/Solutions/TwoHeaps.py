@@ -49,7 +49,6 @@ def medianSlidingWindowHeaps(nums, k):
     out = []
     odd = (k % 2 == 1)
 
-    # Fast local bindings
     push_lo = lambda x: heapq.heappush(lo, -x)
     push_hi = lambda x: heapq.heappush(hi, x)
 

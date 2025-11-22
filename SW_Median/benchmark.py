@@ -23,13 +23,13 @@ def benchmark(func, nums, k):
 # ------------------------------------------------------------
 # 3. ГЕНЕРАЦИЯ ОДНОГО БОЛЬШОГО МАССИВА
 # ------------------------------------------------------------
-def prepare_array(max_n, seed=123):
+def prepare_array(max_n, seed=42):
     random.seed(seed)
-    return [random.randint(0, 10**6) for _ in tqdm(range(max_n))]
+    return [random.randint(-(10 ** 6), 10 ** 6) for _ in tqdm(range(max_n))]
 
 
 k_fixed = 2500
-n_values = [i for i in range(10**5, int(1.1*10**6), 10**5)]
+n_values = [i for i in range(10 ** 5, int(1.1 * 10 ** 6), 10 ** 5)]
 max_n = max(n_values)
 
 base = prepare_array(max_n)
@@ -42,7 +42,7 @@ csv_filename = "results.csv"
 
 with open(csv_filename, "w", newline="") as f:
     writer = csv.writer(f)
-    writer.writerow(["func", "n", "k", "time_sec"])   # header
+    writer.writerow(["func", "n", "k", "time_sec"])  # header
 
     for name, func in functions_to_test:
         for n in tqdm(n_values, desc=name):

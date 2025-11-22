@@ -1,0 +1,19 @@
+import numpy as np
+from scipy.spatial import KDTree
+
+
+def match_timestamps(t1: np.ndarray, t2: np.ndarray) -> np.ndarray:
+    """
+    Timestamp matching function. It returns such array `matching` of length len(timestamps1),
+    that for each index i of timestamps1 the element matching[i] contains
+    the index j of timestamps2, so that the difference between
+    timestamps2[j] and timestamps1[i] is minimal.
+    Example:
+        timestamps1 = [0, 0.091, 0.5]
+        timestamps2 = [0.001, 0.09, 0.12, 0.6]
+        => matching = [0, 1, 3]
+    """
+
+    tree = KDTree(t2[:, None])
+    dist, idx = tree.query(t1[:, None], k=1)
+    return idx.astype(np.uint32)

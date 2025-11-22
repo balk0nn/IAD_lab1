@@ -6,6 +6,7 @@ from SW_Median.Solutions.SortedList import medianSlidingWindow
 def small_array():
     return [2, -1, 5, -7, 2, 0, 5, -8, 3, 4]
 
+
 @pytest.mark.parametrize("k", [3, 4, 5])
 def test_median_sortedlist(small_array, k):
     arr = small_array

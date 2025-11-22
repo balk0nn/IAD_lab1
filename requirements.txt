@@ -4,3 +4,5 @@ tqdm
 numba
 bottleneck
 pytest
+scipy
+polars
