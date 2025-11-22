@@ -12,7 +12,7 @@ data = defaultdict(list)
 with open(csv_filename, "r") as f:
     reader = csv.DictReader(f)
     for row in reader:
-        name = row["func"]        # теперь func
+        name = row["func"]
         t = float(row["time_sec"])
         data[name].append(t)
 
@@ -21,12 +21,13 @@ with open(csv_filename, "r") as f:
 # ------------------------------------------------------------
 plt.clear_data()
 plt.clear_figure()
+plt.theme('dark')
 plt.title("Matching Timestamps Benchmark")
-plt.xlabel("test index")  # по порядку тестов
+plt.xlabel("test index")
 plt.ylabel("time (seconds)")
 
 for name, values in data.items():
-    xs = list(range(1, len(values)+1))  # просто порядковые номера
+    xs = list(range(1, len(values)+1))
     ys = values
     plt.plot(xs, ys, label=name, marker='dot')
 

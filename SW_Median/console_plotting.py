@@ -2,7 +2,7 @@ import csv
 import plotext as plt
 from collections import defaultdict
 
-csv_filename = "results.csv"  # или results_timestamps.csv
+csv_filename = "results.csv"
 
 # ------------------------------------------------------------
 # Загрузка CSV
@@ -24,14 +24,15 @@ with open(csv_filename, "r") as f:
 
 plt.clear_data()
 plt.clear_figure()
+plt.theme('dark')
 plt.title("Benchmark results")
 plt.xlabel("n")
 plt.ylabel("time (seconds)")
 
 for name, values in data.items():
-    values.sort()  # сортируем по n
+    values.sort()
     xs = [v[0] for v in values]
     ys = [v[1] for v in values]
-    plt.plot(xs, ys, label=name, marker='dot')  # легенду задаём здесь
+    plt.plot(xs, ys, label=name, marker='dot')
 
 plt.show()
